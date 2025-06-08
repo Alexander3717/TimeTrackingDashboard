@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-time-tracking-dashboard-made-with-css-grid-and-subgrid-STWrpwLl4T)
 - Live Site URL: [Add live site URL here](https://alexander3717.github.io/TimeTrackingDashboard/)
 
 ## My process
@@ -71,7 +71,7 @@ I wanted the "Report for Jeremy Robson" card to be `<header>`. And the tracking 
 
 `<header>` and children of `<main>` are not siblings, so I cannot simply do it.
 
-That's why I used `subgrid` on `<main>`, which allowed its children (the tracking cards) to use `<body>`s grid tracks.
+That's why I used `subgrid` on `<main>`, which allowed its children (the tracking cards) to use `<body>`'s grid tracks.
 
 So now both `<header>` and children of `<main>` are inside the grid, following the same grid rules and I can make them equally wide with `grid-template-columns: repeat(4, 1fr)`.
 
@@ -79,7 +79,7 @@ So now both `<header>` and children of `<main>` are inside the grid, following t
 body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    // rest of properties here
+    // other properties here
 }
 
 main {
@@ -91,7 +91,7 @@ main {
 
     grid-column: 2 / -1;
     // this says in which area of the parent grid should the subgrid lay out its children
-    // it then lays them out in this area according to the parents grid lines
+    // it then lays them out in this area according to the parent's grid lines
 }
 
 header { // positions the "Report for" card according to the desktop design
@@ -105,7 +105,7 @@ On the JavaScript side, this challenge introduced me to promises and working wit
 
 ### Useful resources
 
-- [Fixes for backgroud color bleed in rounded corners](https://dev.to/rashidshamloo/css-fixing-background-color-bleed-in-rounded-corners-2kh4) - This directly addresses a rendering issue I encountered when styling the tracking cards. I went with the linear-gradient fix.
+- [Fixes for background color bleed in rounded corners](https://dev.to/rashidshamloo/css-fixing-background-color-bleed-in-rounded-corners-2kh4) - This directly addresses a rendering issue I encountered when styling the tracking cards. I went with the linear-gradient fix
 - [Free CSS Grid course](https://cssgrid.io/) - I did the whole course, it gives you a solid foundation for working with grid (though it's a bit older and doesn't cover subgrid)
 
 ## Author
