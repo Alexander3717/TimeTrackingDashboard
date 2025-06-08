@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-time-tracking-dashboard-made-with-css-grid-and-subgrid-STWrpwLl4T)
-- Live Site URL: [Add live site URL here](https://alexander3717.github.io/TimeTrackingDashboard/)
+- Solution URL: [View solution on Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-time-tracking-dashboard-made-with-css-grid-and-subgrid-STWrpwLl4T)
+- Live Site URL: [View live site](https://alexander3717.github.io/TimeTrackingDashboard/)
 
 ## My process
 
