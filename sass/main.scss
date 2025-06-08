@@ -241,6 +241,10 @@ button {
             align-items: start;
             gap: $spacing-500;
             flex: 1;
+
+            &-img {
+                width: rem(78px);
+            }
         }
 
         &__heading {
