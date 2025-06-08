@@ -5,13 +5,13 @@ body {
     justify-content: center;
     align-content: center;
     align-items: start;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(rem(180px), 1fr));
     gap: $spacing-300;
 
     background: $colors-navy-950;
-    padding: 81px 24px 81px 24px;
+    padding: rem(81px) rem(24px) rem(81px) rem(24px);
 
-    max-width: 528px;
+    max-width: rem(528px);
     margin: 0 auto;
 }
 main {
@@ -41,19 +41,19 @@ button {
     grid-column: 1 / -1;
     @include flex(column);
     background: $colors-navy-900;
-    border-radius: 15px;
+    border-radius: rem(15px);
 
     &__profile {
         @include flex($align: center, $gap: $spacing-300);
         background: $colors-purple-600;
         padding: $spacing-400;
-        border-radius: 15px;
+        border-radius: rem(15px);
 
         &-img {
             border-radius: 50%;
-            width: 64px;
-            box-shadow: 0 0 0 3px $colors-white; // for the border
-            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            width: rem(64px);
+            box-shadow: 0 0 0 rem(3px) $colors-white; // for the border
+            filter: drop-shadow(rem(0px) rem(4px) rem(4px) rgba(0, 0, 0, 0.25));
         }
     }
 
@@ -76,7 +76,7 @@ button {
 
     &__button {
         flex: 1;
-        max-width: 114px;
+        max-width: rem(114px);
         color: $colors-purple-500;
         padding: $spacing-300 0;
 
@@ -94,9 +94,9 @@ button {
 
 .tracking-card {
     @include flex(column);
-    padding-top: 38px;
+    padding-top: rem(38px);
     color: $colors-white;
-    border-radius: 15px;
+    border-radius: rem(15px);
     position: relative;
     overflow: hidden;
 
@@ -112,7 +112,7 @@ button {
         @include flex(column, $gap: $spacing-100);
         padding: $spacing-300;
         background-color: var(--content-bg);
-        border-radius: 15px;
+        border-radius: rem(15px);
     }
 
     &:hover {
@@ -123,21 +123,21 @@ button {
         @include flex(row, space-between, center);
     }
     &__category {
-        @include text-preset-5;
+        @include text-preset-5-medium;
     }
     &__options-btn {
         box-sizing: content-box;
-        width: 21px;
-        height: 5px;
+        width: rem(21px);
+        height: rem(5px);
 
         // increase the clickable area without
         // affecting the layout
-        padding: 15px 10px;
-        margin: -15px -10px;
+        padding: rem(15px) rem(10px);
+        margin: rem(-15px) rem(-10px);
 
         background-color: $colors-navy-200;
         mask: url("images/icon-ellipsis.svg") no-repeat center;
-        mask-size: 21px 5px;
+        mask-size: rem(21px) rem(5px);
         transition: background-color 0.2s;
 
         &:hover {
@@ -162,44 +162,44 @@ button {
     &--work {
         --card-bg: #{$colors-orange-300};
         --card-icon: url("images/icon-work.svg");
-        background-position: top -10px right 18px, center;
+        background-position: top rem(-10px) right rem(18px), center;
     }
 
     &--play {
         --card-bg: #{$colors-blue-300};
         --card-icon: url("images/icon-play.svg");
-        background-position: top -5px right 18px, center;
+        background-position: top rem(-5px) right rem(18px), center;
     }
 
     &--study {
         --card-bg: #{$colors-pink-400};
         --card-icon: url("images/icon-study.svg");
-        background-position: top -8px right 18px, center;
+        background-position: top rem(-8px) right rem(18px), center;
     }
 
     &--exercise {
         --card-bg: #{$colors-green-400};
         --card-icon: url("images/icon-exercise.svg");
-        background-position: top -1px right 18px, center;
+        background-position: top rem(-1px) right rem(18px), center;
     }
 
     &--social {
         --card-bg: #{$colors-purple-700};
         --card-icon: url("images/icon-social.svg");
-        background-position: top -14px right 18px, center;
+        background-position: top rem(-14px) right rem(18px), center;
     }
 
     &--self-care {
         --card-bg: #{$colors-yellow-300};
         --card-icon: url("images/icon-self-care.svg");
-        background-position: top -12px right 18px, center;
+        background-position: top rem(-12px) right rem(18px), center;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: rem(768px)) {
     body {
         width: 80%;
-        max-width: 750px;
+        max-width: rem(750px);
         justify-content: center;
         padding: $spacing-400 0;
     }
@@ -219,12 +219,12 @@ button {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: rem(1200px)) {
     body {
         grid-template-columns: repeat(4, 1fr);
         gap: $spacing-400;
         width: 80%;
-        max-width: 1200px;
+        max-width: rem(1200px);
     }
     main {
         gap: $spacing-400;
@@ -250,17 +250,20 @@ button {
 
         &__buttons {
             @include flex(column);
-            padding: calc(28px - 10.5px) $spacing-200 calc(33px - 10.5px) $spacing-200;
+            padding: calc(rem(28px) - rem(10.5px)) $spacing-200 calc(rem(33px) - rem(10.5px)) $spacing-200;
         }
 
         &__button {
             text-align: left;
-            padding: 10.5px $spacing-200;
+            padding: rem(10.5px) $spacing-200;
         }
     }
 
     .tracking-card {
+        padding-top: rem(45px);
+
         &__content {
+            gap: $spacing-300;
             padding: $spacing-400;
         }
     }
