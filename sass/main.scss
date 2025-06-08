@@ -1,0 +1,267 @@
+@use "setup" as *;
+
+body {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: $spacing-300;
+
+    background: $colors-navy-950;
+    padding: 81px 24px 81px 24px;
+
+    max-width: 528px;
+    margin: 0 auto;
+}
+main {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: $spacing-300;
+}
+button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+@property --content-bg {
+    syntax: '<color>';
+    initial-value: #{$colors-navy-900};
+    inherits: true;
+}
+@property --card-bg {
+    syntax: '<color>';
+    initial-value: #{$colors-navy-900};
+    inherits: false;
+}
+
+.header {
+    grid-column: 1 / -1;
+    @include flex(column);
+    background: $colors-navy-900;
+    border-radius: 15px;
+
+    &__profile {
+        @include flex($align: center, $gap: $spacing-300);
+        background: $colors-purple-600;
+        padding: $spacing-400;
+        border-radius: 15px;
+
+        &-img {
+            border-radius: 50%;
+            width: 64px;
+            box-shadow: 0 0 0 3px $colors-white; // for the border
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+    }
+
+    &__text {
+        @include flex(column, $gap: $spacing-100)
+    }
+    &__description {
+        @include text-preset-6;
+        color: $colors-navy-200;
+    }
+    &__heading {
+        @include text-preset-4;
+        color: $colors-white;
+    }
+
+    &__buttons {
+        @include flex(row, center);
+        @include text-preset-5;
+    }
+
+    &__button {
+        flex: 1;
+        max-width: 114px;
+        color: $colors-purple-500;
+        padding: $spacing-300 0;
+
+        transition: color 0.2s;
+
+        &:hover {
+            color: $colors-white;
+        }
+
+        &.active {
+            color: $colors-white;
+        }
+    }
+}
+
+.tracking-card {
+    @include flex(column);
+    padding-top: 38px;
+    color: $colors-white;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        var(--card-icon),
+        linear-gradient(var(--card-bg) 0%, var(--card-bg) 50%, var(--content-bg) 50%, var(--content-bg) 100%);
+    background-repeat: no-repeat;
+
+    transition: 0.2s;
+    transition-property: --card-bg, --content-bg;
+
+    &__content {
+        @include flex(column, $gap: $spacing-100);
+        padding: $spacing-300;
+        background-color: var(--content-bg);
+        border-radius: 15px;
+    }
+
+    &:hover {
+        --content-bg: #{$colors-navy-800};
+    }
+
+    &__header {
+        @include flex(row, space-between, center);
+    }
+    &__category {
+        @include text-preset-5;
+    }
+    &__options-btn {
+        box-sizing: content-box;
+        width: 21px;
+        height: 5px;
+
+        // increase the clickable area without
+        // affecting the layout
+        padding: 15px 10px;
+        margin: -15px -10px;
+
+        background-color: $colors-navy-200;
+        mask: url("images/icon-ellipsis.svg") no-repeat center;
+        mask-size: 21px 5px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: white;
+        }
+    }
+    &__current {
+        @include text-preset-3;
+    }
+    &__previous {
+        @include text-preset-6;
+        color: $colors-navy-200;
+        min-width: max-content;
+    }
+    &__info {
+        @include flex(row, space-between, center, $spacing-100);
+        flex-wrap: wrap;
+    }
+
+    // card modifiers
+
+    &--work {
+        --card-bg: #{$colors-orange-300};
+        --card-icon: url("images/icon-work.svg");
+        background-position: top -10px right 18px, center;
+    }
+
+    &--play {
+        --card-bg: #{$colors-blue-300};
+        --card-icon: url("images/icon-play.svg");
+        background-position: top -5px right 18px, center;
+    }
+
+    &--study {
+        --card-bg: #{$colors-pink-400};
+        --card-icon: url("images/icon-study.svg");
+        background-position: top -8px right 18px, center;
+    }
+
+    &--exercise {
+        --card-bg: #{$colors-green-400};
+        --card-icon: url("images/icon-exercise.svg");
+        background-position: top -1px right 18px, center;
+    }
+
+    &--social {
+        --card-bg: #{$colors-purple-700};
+        --card-icon: url("images/icon-social.svg");
+        background-position: top -14px right 18px, center;
+    }
+
+    &--self-care {
+        --card-bg: #{$colors-yellow-300};
+        --card-icon: url("images/icon-self-care.svg");
+        background-position: top -12px right 18px, center;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        width: 80%;
+        max-width: 750px;
+        justify-content: center;
+        padding: $spacing-400 0;
+    }
+    
+    .tracking-card {
+        &__content {
+            gap: $spacing-200;
+        }
+
+        &__current {
+            @include text-preset-1;
+            white-space: nowrap;
+        }
+        &__info {
+            @include flex(column, $gap: $spacing-100);
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        grid-template-columns: repeat(4, 1fr);
+        gap: $spacing-400;
+        width: 80%;
+        max-width: 1200px;
+    }
+    main {
+        gap: $spacing-400;
+        grid-column: 2 / -1;
+    }
+    
+    .header {
+        grid-column: 1;
+        grid-row: 1 / -1;
+        align-self: stretch;
+
+        &__profile {
+            flex-direction: column;
+            align-items: start;
+            gap: $spacing-500;
+            flex: 1;
+        }
+
+        &__heading {
+            @include text-preset-2;
+            color: $colors-white;
+        }
+
+        &__buttons {
+            @include flex(column);
+            padding: calc(28px - 10.5px) $spacing-200 calc(33px - 10.5px) $spacing-200;
+        }
+
+        &__button {
+            text-align: left;
+            padding: 10.5px $spacing-200;
+        }
+    }
+
+    .tracking-card {
+        &__content {
+            padding: $spacing-400;
+        }
+    }
+}

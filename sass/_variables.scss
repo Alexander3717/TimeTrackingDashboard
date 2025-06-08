@@ -1,0 +1,106 @@
+@use 'functions' as *;
+
+// colors
+$colors-black: #000000;
+$colors-white: #ffffff;
+$colors-blue-300: #55c2e6;
+$colors-green-400: #4bcf82;
+$colors-grey-200: #d8d8d8;
+$colors-navy-200: #bbc0ff;
+$colors-navy-800: #33397a;
+$colors-navy-900: #1c204b;
+$colors-navy-950: #0e1323;
+$colors-orange-300: #ff8b64;
+$colors-pink-400: #ff5e7d;
+$colors-purple-500: #7078c9;
+$colors-purple-600: #5747ea;
+$colors-purple-700: #7335d2;
+$colors-yellow-300: #f1c75b;
+
+//spacings
+$spacing-0: 0px;
+$spacing-100: 8px;
+$spacing-200: 16px;
+$spacing-300: 24px;
+$spacing-400: 32px;
+$spacing-500: 40px;
+
+// text presets
+@mixin text-preset-1 {
+  color: inherit;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Text Preset 1 - Rubik Light - 56px - 66px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 66px; /* 117.857% */
+}
+@mixin text-preset-2 {
+  color: inherit;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Text Preset 2 - Rubik Light - 40px - 47px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 47px; /* 117.5% */
+}
+@mixin text-preset-3 {
+  color: inherit;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Text Preset 3 - Rubik Light - 32px - 38px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 38px; /* 118.75% */
+}
+@mixin text-preset-4 {
+  color: inherit;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Text Preset 4 - Rubik Light - 24px - 28px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px; /* 116.667% */
+}
+@mixin text-preset-5 {
+  color: inherit;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Text Preset 5 (Regular) - Rubik Regular - 18px - 21px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 116.667% */
+}
+@mixin text-preset-5-medium {
+  color: inherit;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Text Preset 5 (Medium) - Rubik Medium - 18px - 21px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 116.667% */
+}
+
+@mixin text-preset-6 {
+  color: inherit;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Text Preset 6 - Rubik Regular - 15px - 18px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 120% */
+}

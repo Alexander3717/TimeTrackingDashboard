@@ -1,0 +1,355 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p, blockquote {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  background: #0e1323;
+  padding: 81px 24px 81px 24px;
+  max-width: 528px;
+  margin: 0 auto;
+}
+
+main {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 24px;
+}
+
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+@property --content-bg {
+  syntax: "<color>";
+  initial-value: #1c204b;
+  inherits: true;
+}
+@property --card-bg {
+  syntax: "<color>";
+  initial-value: #1c204b;
+  inherits: false;
+}
+.header {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+  background: #1c204b;
+  border-radius: 15px;
+}
+.header__profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  background: #5747ea;
+  padding: 32px;
+  border-radius: 15px;
+}
+.header__profile-img {
+  border-radius: 50%;
+  width: 64px;
+  box-shadow: 0 0 0 3px #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.header__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 8px;
+}
+.header__description {
+  color: inherit;
+  font-feature-settings: "liga" off, "clig" off;
+  /* Text Preset 6 - Rubik Regular - 15px - 18px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 120% */
+  color: #bbc0ff;
+}
+.header__heading {
+  color: inherit;
+  font-feature-settings: "liga" off, "clig" off;
+  /* Text Preset 4 - Rubik Light - 24px - 28px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px; /* 116.667% */
+  color: #ffffff;
+}
+.header__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  color: inherit;
+  font-feature-settings: "liga" off, "clig" off;
+  /* Text Preset 5 (Regular) - Rubik Regular - 18px - 21px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 116.667% */
+}
+.header__button {
+  flex: 1;
+  max-width: 114px;
+  color: #7078c9;
+  padding: 24px 0;
+  transition: color 0.2s;
+}
+.header__button:hover {
+  color: #ffffff;
+}
+.header__button.active {
+  color: #ffffff;
+}
+
+.tracking-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+  padding-top: 38px;
+  color: #ffffff;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  background-image: var(--card-icon), linear-gradient(var(--card-bg) 0%, var(--card-bg) 50%, var(--content-bg) 50%, var(--content-bg) 100%);
+  background-repeat: no-repeat;
+  transition: 0.2s;
+  transition-property: --card-bg, --content-bg;
+}
+.tracking-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 8px;
+  padding: 24px;
+  background-color: var(--content-bg);
+  border-radius: 15px;
+}
+.tracking-card:hover {
+  --content-bg: #33397a;
+}
+.tracking-card__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+.tracking-card__category {
+  color: inherit;
+  font-feature-settings: "liga" off, "clig" off;
+  /* Text Preset 5 (Regular) - Rubik Regular - 18px - 21px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 116.667% */
+}
+.tracking-card__options-btn {
+  box-sizing: content-box;
+  width: 21px;
+  height: 5px;
+  padding: 15px 10px;
+  margin: -15px -10px;
+  background-color: #bbc0ff;
+  mask: url("images/icon-ellipsis.svg") no-repeat center;
+  mask-size: 21px 5px;
+  transition: background-color 0.2s;
+}
+.tracking-card__options-btn:hover {
+  background-color: white;
+}
+.tracking-card__current {
+  color: inherit;
+  font-feature-settings: "liga" off, "clig" off;
+  /* Text Preset 3 - Rubik Light - 32px - 38px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 38px; /* 118.75% */
+}
+.tracking-card__previous {
+  color: inherit;
+  font-feature-settings: "liga" off, "clig" off;
+  /* Text Preset 6 - Rubik Regular - 15px - 18px Line Height - 0px Line Spacing */
+  font-family: Rubik;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 120% */
+  color: #bbc0ff;
+  min-width: max-content;
+}
+.tracking-card__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tracking-card--work {
+  --card-bg: #ff8b64;
+  --card-icon: url("images/icon-work.svg");
+  background-position: top -10px right 18px, center;
+}
+.tracking-card--play {
+  --card-bg: #55c2e6;
+  --card-icon: url("images/icon-play.svg");
+  background-position: top -5px right 18px, center;
+}
+.tracking-card--study {
+  --card-bg: #ff5e7d;
+  --card-icon: url("images/icon-study.svg");
+  background-position: top -8px right 18px, center;
+}
+.tracking-card--exercise {
+  --card-bg: #4bcf82;
+  --card-icon: url("images/icon-exercise.svg");
+  background-position: top -1px right 18px, center;
+}
+.tracking-card--social {
+  --card-bg: #7335d2;
+  --card-icon: url("images/icon-social.svg");
+  background-position: top -14px right 18px, center;
+}
+.tracking-card--self-care {
+  --card-bg: #f1c75b;
+  --card-icon: url("images/icon-self-care.svg");
+  background-position: top -12px right 18px, center;
+}
+
+@media (min-width: 768px) {
+  body {
+    width: 80%;
+    max-width: 750px;
+    justify-content: center;
+    padding: 32px 0;
+  }
+  .tracking-card__content {
+    gap: 16px;
+  }
+  .tracking-card__current {
+    color: inherit;
+    font-feature-settings: "liga" off, "clig" off;
+    /* Text Preset 1 - Rubik Light - 56px - 66px Line Height - 0px Line Spacing */
+    font-family: Rubik;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 66px; /* 117.857% */
+    white-space: nowrap;
+  }
+  .tracking-card__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 8px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    width: 80%;
+    max-width: 1200px;
+  }
+  main {
+    gap: 32px;
+    grid-column: 2/-1;
+  }
+  .header {
+    grid-column: 1;
+    grid-row: 1/-1;
+    align-self: stretch;
+  }
+  .header__profile {
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
+    flex: 1;
+  }
+  .header__heading {
+    color: inherit;
+    font-feature-settings: "liga" off, "clig" off;
+    /* Text Preset 2 - Rubik Light - 40px - 47px Line Height - 0px Line Spacing */
+    font-family: Rubik;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 47px; /* 117.5% */
+    color: #ffffff;
+  }
+  .header__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+    padding: 17.5px 16px 22.5px 16px;
+  }
+  .header__button {
+    text-align: left;
+    padding: 10.5px 16px;
+  }
+  .tracking-card__content {
+    padding: 32px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
